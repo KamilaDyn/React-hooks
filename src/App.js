@@ -1,24 +1,26 @@
-import { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 
-import Button from './Button';
-import UserInfo from './UserInfo';
 
-import { AppContext, defaultObject } from './AppContext';
+const LifeCycleMethod =()=>{
+  useEffect(()=>{
+    console.log('render me');
+    return console.log('unmount me now ')
+  })
+  return 'life cycle with useEffect.'
+}
 
 const App = () => {
-  const [isUserLogged, setIsUserLogged] = useState(defaultObject.isUserLogged);
-  const [isUserAdult, setIsUserAdult] = useState(true);
 
-  const toggleLoggedState = () => setIsUserLogged(prevValue => !prevValue);
-  const toggleAdultState = () => setIsUserAdult(prevValue => !prevValue);
-
+  const [random, setRandom] = useState(Math.random());
+  const [mounted, setMounted] = useState(true);
+  
+  const reRender =()=>setRandom(Math.random());
+  const toggleMount = ()=> setMounted(!mounted)
   return (
     <div>
-      <AppContext.Provider value={{ isUserLogged, toggleLoggedState }}>
-        <UserInfo />
-        <Button />
-      </AppContext.Provider>
-
+     <button onClick={reRender}>Re-render</button>
+     <button onClick={toggleMount}>Show and Hide lifeCycle with use Effect</button>
+     {mounted && <LifeCycleMethod />}
     </div>
   );
 
