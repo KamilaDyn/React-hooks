@@ -46,9 +46,13 @@ dispatch jest to metoda zawierająca obiekt akcji, przekazuje argument z typem a
 Reducer zmienia stan przy renderowaniu, na podstawie akcji np 'ADD'
 
 ....
+
 switch (action.type) {
+
 case "ADD":
+
 return [...state, action.newBookItem];
+
 ...
 
 const handleOnClick = () => {
