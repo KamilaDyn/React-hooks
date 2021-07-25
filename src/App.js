@@ -1,27 +1,9 @@
-import { useState } from 'react';
-
-import Button from './Button';
-import UserInfo from './UserInfo';
-
-import { AppContext, defaultObject } from './AppContext';
-
-const App = () => {
-  const [isUserLogged, setIsUserLogged] = useState(defaultObject.isUserLogged);
-  const [isUserAdult, setIsUserAdult] = useState(true);
-
-  const toggleLoggedState = () => setIsUserLogged(prevValue => !prevValue);
-  const toggleAdultState = () => setIsUserAdult(prevValue => !prevValue);
-
-  return (
-    <div>
-      <AppContext.Provider value={{ isUserLogged, toggleLoggedState }}>
-        <UserInfo />
-        <Button />
-      </AppContext.Provider>
-
-    </div>
-  );
-
+import React, { Component } from "react";
+import Books from "./components/Books";
+class App extends Component {
+  render() {
+    return <Books />;
+  }
 }
 
 export default App;
