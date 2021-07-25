@@ -15,13 +15,18 @@ Powyższa funkcja przyjmuje dwa argumenty
 Wewnątrz naszej funcji, reducera wybieramy akcję przez switch
 
 const booksReducer =(state, action) =>{
+
 switch(action.type){
+
 case 'ADD':
 return;
+
 case 'REMOVE':
 return;
+
 case 'FETCH:
 return;
+
 default:
 throw new Error('sth went wrong');
 }
